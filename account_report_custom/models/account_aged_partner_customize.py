@@ -62,7 +62,7 @@ class ReportAccountAgedPartnerCustomize(models.AbstractModel):
 
     def _get_hierarchy_details(self, options):
         return [
-            self._hierarchy_level('partner_id', foldable=True, namespan=len(self._get_column_details(options))),
+            self._hierarchy_level('partner_id', foldable=False, namespan=len(self._get_column_details(options)) - 1),
             self._hierarchy_level('id'),
         ]
 
