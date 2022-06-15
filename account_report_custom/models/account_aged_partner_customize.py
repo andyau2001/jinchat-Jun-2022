@@ -246,7 +246,7 @@ class ReportAccountAgedPartnerCustomize(models.AbstractModel):
         columns = [
             self._header_column(),
             # self._field_column('report_date'),
-            self._field_column('invoice_date', name=_("Invoice Date")),
+            self._field_column('invoice_date', name=_("Accounting date")),
 
             # self._field_column('balance', name=_("balance")),
             # self._field_column('part_debit_amount', name=_("part_debit_amount")),
