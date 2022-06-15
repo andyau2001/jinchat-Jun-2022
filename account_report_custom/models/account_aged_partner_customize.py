@@ -11,6 +11,9 @@ _logger = logging.getLogger(__name__)
 class ReportAccountAgedPartnerCustomize(models.AbstractModel):
     _inherit = "account.aged.partner"
 
+    _auto = False
+    total_line = False
+
     order_no = fields.Char(group_operator='max')
     currency_rate = fields.Float(group_operator='max')
 
@@ -62,7 +65,7 @@ class ReportAccountAgedPartnerCustomize(models.AbstractModel):
 
     def _get_hierarchy_details(self, options):
         return [
-            self._hierarchy_level('partner_id', foldable=True, namespan=len(self._get_column_details(options)) - 1),
+            self._hierarchy_level('partner_id', foldable=True, namespan=len(self._get_column_details(options)) - 2),
             self._hierarchy_level('id'),
         ]
 
