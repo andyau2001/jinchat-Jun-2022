@@ -286,14 +286,14 @@ class ReportAccountAgedPartnerCustomize(models.AbstractModel):
             # self._field_column('period4', sortable=True),
             # self._field_column('period5', sortable=True),
 
-            # self._custom_column(  # Avoid doing twice the sub-select in the view
-            #     name=_('Total'),
-            #     classes=['number'],
-            #     formatter=self.format_value,
-            #     getter=(
-            #         lambda v: v['period0'] + v['period1'] + v['period2'] + v['period3'] + v['period4'] + v['period5']),
-            #     sortable=True,
-            # ),
+            self._custom_column(  # Avoid doing twice the sub-select in the view
+                name=_('Total'),
+                classes=['number', 'oe_invisible'],
+                formatter=self.format_value,
+                getter=(
+                    lambda v: v['period0'] + v['period1'] + v['period2'] + v['period3'] + v['period4'] + v['period5']),
+                sortable=True,
+            ),
         ]
 
         return columns
