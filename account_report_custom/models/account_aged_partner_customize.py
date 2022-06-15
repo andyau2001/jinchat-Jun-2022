@@ -291,7 +291,7 @@ class ReportAccountAgedPartnerCustomize(models.AbstractModel):
 
             self._custom_column(  # Avoid doing twice the sub-select in the view
                 name=_('Total'),
-                classes=['number', 'oe_invisible'],
+                classes=['number', 'd-none'],
                 formatter=self.format_value,
                 getter=(
                     lambda v: v['period0'] + v['period1'] + v['period2'] + v['period3'] + v['period4'] + v['period5']),
