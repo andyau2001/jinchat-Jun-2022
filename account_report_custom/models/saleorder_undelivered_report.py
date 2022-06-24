@@ -133,6 +133,8 @@ class ReportSaleOrderUndelivered(models.Model):
                     LIMIT 1
                 ) curr_rate ON so.currency_id = curr_rate.currency_id 
             WHERE so.state = 'sale'
+                AND prod.type != 'service'
+                AND (sale_order_line.product_uom_qty - sale_order_line.qty_delivered) > 0
             GROUP BY sale_order_line.id, so.id, partner.id, trust_property.id,
                 so.name, prodtem.name,
                 curr_rate.currency_id, curr_rate.rate, curr_rate.name, curr_rate.symbol,
